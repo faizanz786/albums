@@ -28,4 +28,4 @@ check out the Quickstart section in the [developer guide](https://boto3.readthed
 This sample application connects to Amazon's [Simple Storage Service (S3)](http://aws.amazon.com/s3),
 and retrieves the uploaded file from S3. All you need to do is run the code:
 
-    python3 sretrievalService.py 
+    python3 retrievalService.py 
