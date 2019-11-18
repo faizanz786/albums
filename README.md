@@ -1,1 +1,1 @@
-# instagram-part-2
+This goal of this project is to make a service similar to Instagram. The sole purpose is to learn how to connect different technologies together and make a fully functioning product. 
