@@ -12,4 +12,3 @@ if (url is None):
     print('Unable to retrieve the photo url')
 else:
     print('Photo URL: {url}'.format(url = url))
-    # print(url)
