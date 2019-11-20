@@ -4,10 +4,13 @@ The sole purpose is to learn how to connect different technologies and make a fu
 
 ## Requirements
 
-This sample project depends on `boto3`, the AWS SDK for Python, and requires
-Python 2.6.5+, 2.7, 3.3, 3.4, or 3.5. You can install `boto3` using pip:
+This sample project depends on `boto3` and `flask`, the AWS SDK and web framework for Python, and requires Python 2.6.5+, 2.7, 3.3, 3.4, or 3.5. You can install `boto3` using pip:
 
     pip install boto3
+    pip install flask
+
+
+
 
 ## Basic Configuration
 
