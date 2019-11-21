@@ -16,7 +16,15 @@ def getS3Client():
     return s3Client
 
 def retrievePhotoURL(bucketName, photoName):
-    if (getS3Client() is None) :
+    s3 = getS3Client()
+    if (s3 is None) :
         return None
-    url = getS3Client().generate_presigned_url('get_object', {'Bucket': bucketName, 'Key': photoName})
+    url = s3.generate_presigned_url('get_object', {'Bucket': bucketName, 'Key': photoName})
     return url
+
+def uploadPhotoAndReturnUrl(bucketName, file):
+    s3 = getS3Client()
+    if (s3 is None) :
+        return None
+    s3.put_object(Bucket=bucketName, Key=file.filename, Body=file, ContentType='image/jpeg')
+    return retrievePhotoURL(bucketName, file.filename)
