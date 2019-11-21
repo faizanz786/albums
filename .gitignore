@@ -1,2 +1,9 @@
 __pycache__
 DS_STORE
+node_modules/
+.cache/
+dist/
+coverage/
+.vscode/
+.env
+package-lock.json

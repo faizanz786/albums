@@ -3,29 +3,41 @@ This goal of this project is to make a service similar to Instagram.
 The sole purpose is to learn how to connect different technologies and make a fully functioning product.
 
 ## Requirements
+* Python 3
+* boto3
+* npm
+* node
+* Amazon S3
 
-This sample project depends on `boto3`, the AWS SDK for Python, and requires
-Python 2.6.5+, 2.7, 3.3, 3.4, or 3.5. You can install `boto3` using pip:
-
-    pip install boto3
 
 ## Basic Configuration
+Install boto3
 
-You need to set up your AWS security credentials before the sample code is able
-to connect to AWS. You can do this by creating a file named "credentials" at ~/.aws/ 
-(`C:\Users\USER_NAME\.aws\` for Windows users) and saving the following lines in the file:
+```
+pip install boto3
+```
 
-    [default]
-    aws_access_key_id = <your access key id>
-    aws_secret_access_key = <your secret key>
+Update aws.py in lib folder with following code:
 
-See the [Security Credentials](http://aws.amazon.com/security-credentials) page
-for more information on getting your keys. For more information on configuring `boto3`,
-check out the Quickstart section in the [developer guide](https://boto3.readthedocs.org/en/latest/guide/quickstart.html).
+```
+aws_access_key_id = <your access key id>
+aws_secret_access_key = <your secret key>
+```
 
 ## Running the S3 sample
 
 This sample application connects to Amazon's [Simple Storage Service (S3)](http://aws.amazon.com/s3),
 and retrieves the uploaded file from S3. All you need to do is run the code:
 
-    python3 retrievalService.py 
+```
+python3 retrievalService.py
+```
+
+## Running the client
+```
+npm install
+npm run dev
+
+// To run jest tests
+npm run test
+```
