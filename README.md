@@ -12,6 +12,8 @@ The sole purpose is to learn how to connect different technologies and make a fu
 * Npm
 * Node
 * Amazon S3
+* MongoDB
+* MongoDB Compass
 
 ## Basic Configuration
 
@@ -36,6 +38,19 @@ or
 ```    
 brew cask install insomnia
 ```
+
+Follow the instructions below to get MongoDB
+
+```
+https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
+```
+
+To see your databases, collections and documents download MongoDB Compass
+
+```
+https://www.mongodb.com/download-center/compass
+```
+
 
 ## Running the retrieval service
 
