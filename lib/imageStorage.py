@@ -34,11 +34,12 @@ def uploadPhotoAndReturnUrl(bucketName, file):
     hashedFileName = hashlib.sha224(name.encode('utf-8')).hexdigest()
     s3.put_object(Bucket=bucketName, Key=hashedFileName, Body=file, ContentType='image/jpeg')
     url = retrievePhotoURL(bucketName, hashedFileName)
-    data = {"photoUrl": url,
-            "userName": bucketName
-            }
     db = db_connection.connect()
     collection = db["photo"]
+    data = {"photoUrl": url,
+            "userName": bucketName,
+            "createdDateTime": datetime.now()
+        }
     collection.insert_one(data)
     return url
         
