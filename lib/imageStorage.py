@@ -1,8 +1,8 @@
 import boto3
-import hashlib
 from aws import AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY
 from datetime import datetime
-from dbConnection import db_connection
+import dbOperations
+import utilities
 
 s3Client = None
 
@@ -25,21 +25,22 @@ def retrievePhotoURL(bucketName, photoName):
     url = s3.generate_presigned_url('get_object', {'Bucket': bucketName, 'Key': photoName})
     return url
 
-def uploadPhotoAndReturnUrl(bucketName, file):
+def uploadPhotoToS3AndReturnUrl(bucketName, file):
     s3 = getS3Client()
     if (s3 is None) :
         return None
     
     name = bucketName+file.filename+str(datetime.now())
-    hashedFileName = hashlib.sha224(name.encode('utf-8')).hexdigest()
+    hashedFileName = utilities.hashString(name)
     s3.put_object(Bucket=bucketName, Key=hashedFileName, Body=file, ContentType='image/jpeg')
-    url = retrievePhotoURL(bucketName, hashedFileName)
-    db = db_connection.connect()
-    collection = db["photo"]
+    return retrievePhotoURL(bucketName, hashedFileName)
+
+def insertPhotoInDb(bucketName, file):
+    url = uploadPhotoToS3AndReturnUrl(bucketName, file)
     data = {"photoUrl": url,
             "userName": bucketName,
-            "createdDateTime": datetime.now()
+            "createdDateTime": datetime.utcnow()
         }
-    collection.insert_one(data)
+    dbOperations.insert_data(data, 'photo')
     return url
         

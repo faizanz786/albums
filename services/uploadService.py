@@ -4,7 +4,7 @@ import sys
 import os
 sys.path.insert(1, os.path.join(os.path.dirname(__file__), os.pardir, 'lib'))
 
-from imageStorage import uploadPhotoAndReturnUrl
+from imageStorage import insertPhotoInDb
 
 app = Flask(__name__)
 
@@ -20,7 +20,7 @@ def upload():
 
     if file:
         bucketName = 'faizan-profile-1'
-        output = uploadPhotoAndReturnUrl(bucketName, file)
+        output = insertPhotoInDb(bucketName, file)
         return output
 
 if __name__ == "__main__":
