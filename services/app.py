@@ -1,10 +1,10 @@
-from flask import Flask, request
-import boto3
 import sys
 import os
 sys.path.insert(1, os.path.join(os.path.dirname(__file__), os.pardir, 'lib'))
 
 from imageStorage import insertPhotoInDb
+from imageRetrieval import retrievePhotosFromDb
+from flask import Flask, request
 
 app = Flask(__name__)
 
@@ -22,6 +22,10 @@ def upload():
         bucketName = 'faizan-profile-1'
         output = insertPhotoInDb(bucketName, file)
         return output
+
+@app.route('/photos', methods=['POST'])
+def retrievePhotos():
+    return retrievePhotosFromDb()
 
 if __name__ == "__main__":
     app.run(debug=True)

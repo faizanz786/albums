@@ -51,21 +51,18 @@ To see your databases, collections and documents download MongoDB Compass
 https://www.mongodb.com/download-center/compass
 ```
 
+## Features List
+* [x] /upload route allows a user to upload an image to s3 storage
+* [x] /photos route retrieves the image url from mongodb database
+* [ ] upload component that will allow a user to upload an image with jpg ext
+* [ ] display all the photos in the grid format with responsive UI
 
-## Running the retrieval service
-
-This sample application connects to Amazon's [Simple Storage Service (S3)](http://aws.amazon.com/s3),
-and retrieves the uploaded file from S3. All you need to do is run the code:
+## Running the web server
 
 ```
-python3 retrievalService.py
+cd services
+python3 app.py 
 ```
-
-## Running the upload service
-
-This sample application uploads the selected file to Amazon's [Simple Storage Service (S3)](http://aws.amazon.com/s3), and returns it's url. All you need to do is run the code and then make a post request in insomnia:
-
-    python3 uploadService.py 
 
 ## Running the client
 
