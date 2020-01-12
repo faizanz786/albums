@@ -6,8 +6,7 @@ The sole purpose is to learn how to connect different technologies and make a fu
 ## Requirements
 
 * Python 3
-* Boto3
-* Flask
+* Pipenv
 * Insomnia
 * Npm
 * Node
@@ -16,12 +15,6 @@ The sole purpose is to learn how to connect different technologies and make a fu
 * MongoDB Compass
 
 ## Basic Configuration
-
-Install boto3 and flask
-
-```
-pip install boto3 flask
-```
 
 Update aws.py in lib folder with following code:
 
@@ -60,8 +53,16 @@ https://www.mongodb.com/download-center/compass
 ## Running the web server
 
 ```
-cd services
-python3 app.py 
+pipenv install
+
+pipenv shell
+
+export FLASK_APP=services/app.py 
+
+// For dev environment
+export FLASK_ENV=development
+
+flask run
 ```
 
 ## Running the client
