@@ -1,6 +1,6 @@
 import sys
 import os
-sys.path.insert(1, os.path.join(os.path.dirname(__file__), os.pardir, 'lib'))
+sys.path.insert(1, os.path.join(os.path.dirname(__file__), os.pardir, 'services/lib'))
 
 from imageStorage import insertPhotoInDb
 from imageRetrieval import retrievePhotosFromDb
@@ -26,7 +26,3 @@ def upload():
 @app.route('/photos', methods=['POST'])
 def retrievePhotos():
     return retrievePhotosFromDb()
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
